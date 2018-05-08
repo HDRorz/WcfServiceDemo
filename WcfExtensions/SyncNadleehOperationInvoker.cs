@@ -3,11 +3,8 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.ServiceModel.Diagnostics;
 using System.ServiceModel.Dispatcher;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using WcfExtensions.Util;
 
 namespace WcfExtensions
@@ -28,6 +25,20 @@ namespace WcfExtensions
         private int inputParameterCount;
         private int outputParameterCount;
         private Type type;
+
+        public SyncNadleehOperationInvoker(IOperationInvoker invoker, MethodInfo method)
+        {
+            this.method = method;
+            innerInvoker = invoker;
+
+            inputParameterCount = method.GetParameters().Count(e => e.IsIn);
+            outputParameterCount = method.GetParameters().Count(e => e.IsOut);
+
+            BeforerInvokerHandles.Add(BeforeMethodInvoke.SetStopWatch);
+            BeforerInvokerHandles.Add(BeforeMethodInvoke.TokenValid);
+
+            AfterInvokerHandles.Add(AfterMethodInvoke.OperatingLog);
+        }
 
         public SyncNadleehOperationInvoker(MethodInfo method)
         {
@@ -167,12 +178,12 @@ namespace WcfExtensions
 
         public IAsyncResult InvokeBegin(object instance, object[] inputs, AsyncCallback callback, object state)
         {
-            throw new NotImplementedException();
+            return innerInvoker.InvokeBegin(instance, inputs, callback, state);
         }
 
         public object InvokeEnd(object instance, out object[] outputs, IAsyncResult result)
         {
-            throw new NotImplementedException();
+            return innerInvoker.InvokeEnd(instance, out outputs, result);
         }
     }
 }

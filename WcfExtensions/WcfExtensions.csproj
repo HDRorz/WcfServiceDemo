@@ -45,7 +45,7 @@
     <Compile Include="Attr\ParamTypeAttribute.cs" />
     <Compile Include="Attr\TokenValidAttribute.cs" />
     <Compile Include="AstraeaParameterInspector.cs" />
-    <Compile Include="Element\VedaEndpointExtensionElement.cs" />
+    <Compile Include="Element\VedaEndpointBehaviorExtensionElement.cs" />
     <Compile Include="DynamesMessageInspector.cs" />
     <Compile Include="ExiaErrorHandler.cs" />
     <Compile Include="Extra\OperationLogManager.cs" />
@@ -55,7 +55,7 @@
     <Compile Include="Util\AfterMethodInvoke.cs" />
     <Compile Include="Util\BeforeMethodInvoke.cs" />
     <Compile Include="Util\MethodInvokeDelegate.cs" />
-    <Compile Include="VedaEndpointExtension.cs" />
+    <Compile Include="VedaEndpointBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

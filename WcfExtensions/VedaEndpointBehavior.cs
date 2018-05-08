@@ -15,7 +15,7 @@ namespace WcfExtensions
     /// <summary>
     /// 吠陀终结点扩展
     /// </summary>
-    public class VedaEndpointExtension : IEndpointBehavior
+    public class VedaEndpointBehavior : IEndpointBehavior
     {
 
         public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
@@ -51,7 +51,7 @@ namespace WcfExtensions
                 operation.ParameterInspectors.Add(new AstraeaParameterInspector());
             }
 
-            //内部调度器
+            //获取内部调度器ImmutableDispatchRuntime
             var type = typeof(DispatchRuntime);
             var mi = type.GetMethod("GetRuntime", BindingFlags.NonPublic | BindingFlags.Instance);
             var innerRuntime = mi.Invoke(endpointDispatcher.DispatchRuntime, null);

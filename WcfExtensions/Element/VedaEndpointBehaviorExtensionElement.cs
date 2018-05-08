@@ -6,16 +6,16 @@ using System.Text;
 
 namespace WcfExtensions.Element
 {
-    public class VedaEndpointExtensionElement : BehaviorExtensionElement
+    public class VedaEndpointBehaviorExtensionElement : BehaviorExtensionElement
     {
         public override Type BehaviorType
         {
-            get { return typeof(VedaEndpointExtension); }
+            get { return typeof(VedaEndpointBehavior); }
         }
 
         protected override object CreateBehavior()
         {
-            return new VedaEndpointExtension();
+            return new VedaEndpointBehavior();
         }
     }
 }

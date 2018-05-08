@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
-using System.ServiceModel.Diagnostics;
 using System.ServiceModel.Dispatcher;
 using System.Text;
-using System.Threading.Tasks;
-using WcfExtensions.Util;
 
 namespace WcfExtensions
 {
@@ -34,7 +30,7 @@ namespace WcfExtensions
         /// <param name="dispatchOperation"></param>
         public void ApplyDispatchBehavior(OperationDescription operationDescription, DispatchOperation dispatchOperation)
         {
-            dispatchOperation.Invoker = new SyncNadleehOperationInvoker(operationDescription.SyncMethod);
+            dispatchOperation.Invoker = new SyncNadleehOperationInvoker(dispatchOperation.Invoker, operationDescription.SyncMethod);
         }
 
         public void Validate(OperationDescription operationDescription)
