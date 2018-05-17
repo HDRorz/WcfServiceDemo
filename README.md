@@ -12,7 +12,7 @@ wcf service demo with wcf extensions demo
 
 \WcfService1 : [WCF WebService](https://docs.microsoft.com/zh-cn/dotnet/framework/wcf/feature-details/hosting-in-internet-information-services)，基本没写
 
-\WcfServiceHost :  [WCF 寄宿windows服务](https://docs.microsoft.com/zh-cn/dotnet/framework/wcf/feature-details/hosting-in-a-windows-service-application)，使用了[Topshelf]（https://github.com/Topshelf/Topshelf）方案创建windows服务
+\WcfServiceHost :  [WCF 寄宿windows服务](https://docs.microsoft.com/zh-cn/dotnet/framework/wcf/feature-details/hosting-in-a-windows-service-application)，使用了[Topshelf](https://github.com/Topshelf/Topshelf)方案创建windows服务
 
 \WcfServiceLibrary1 : WCF服务 (使用了webHttpBinding，使用了WcfExtensions)
 
